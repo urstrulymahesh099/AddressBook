@@ -6,20 +6,30 @@ namespace AddresBook
 { 
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Contact contact = new Contact();
+            bool condition = true;
+            while (condition)
             {
-                contact.FirstName = Console.ReadLine();
-                contact.LastName = Console.ReadLine();
-                contact.Address = Console.ReadLine();
-                contact.City = Console.ReadLine();
-                contact.State = Console.ReadLine();
-                contact.Zip = Convert.ToInt64(Console.ReadLine());
-                contact.PhoneNumber = Console.ReadLine();
-                contact.Email = Console.ReadLine();
-            };
-            Console.WriteLine("Contact details" + "\n" + contact.FirstName + "\n" + contact.LastName + "\n" + contact.Address + "\n" + contact.City + "\n" + contact.State + "\n" + contact.PhoneNumber + "\n" + contact.Email);
+                Console.WriteLine("Welcome to Address Book Problem Statement\n");               
+                Console.WriteLine("1. Create a new Contact \n2. Exit");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("\nEnter your details : \n");
+                        Console.WriteLine("First Name - " + "\n" + "Last Name - " + "\n" + "Address - " + "\n" +
+                                        "City Name - " + "\n" + "State Name - " + "\n" + "Zip Code - " + "\n" +
+                                        "Phone Number - " + "\n" + "Email ID - ");
+                        NewContact create = new NewContact();
+                        create.Create();
+                        break;
+                    default:
+                        Console.WriteLine("Try Again");
+                        condition = false;
+                        break;
+                }
+            }
         }
     }
 }
