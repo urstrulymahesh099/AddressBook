@@ -80,6 +80,21 @@ namespace AddressBook
                 }
             }
         }
+        public void Delete()
+        {
+            CreateContact();
+            Console.WriteLine("Enter the name to delete Contact");
+            string name = Console.ReadLine();
+            foreach (var contact in address)
+            {
+
+                if (contact.FirstName == name || contact.LastName == name)
+                {
+                    address.Remove(contact);
+                }
+                Console.WriteLine("Contact Deleted Successfully");
+            }
+        }
 
     }
 }

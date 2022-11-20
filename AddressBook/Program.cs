@@ -14,7 +14,7 @@ namespace AddresBook
             while(choice)
             {
                 Console.WriteLine("Enter your choice");
-                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Exit");
+                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3.Delete a Contact\n. Exit");
                 AddressBookMain add = new AddressBookMain();
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -26,6 +26,9 @@ namespace AddresBook
                     case 2:
                         add.Edit();
                         add.Display();
+                        break;
+                    case 3:
+                        add.Delete();
                         break;
                     default:
                         choice = false;
