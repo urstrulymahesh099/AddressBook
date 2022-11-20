@@ -1,4 +1,5 @@
 ﻿using AddressBook;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Net;
 
@@ -8,28 +9,31 @@ namespace AddresBook
     {
         public static void Main(string[] args)
         {
-            bool condition = true;
-            while (condition)
+            Console.WriteLine("Welcome to address book program");
+            bool choice = true;
+            while(choice)
             {
-                Console.WriteLine("Welcome to Address Book Problem Statement\n");               
-                Console.WriteLine("1. Create a new Contact \n2. Exit");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                Console.WriteLine("Enter your choice");
+                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Exit");
+                AddressBookMain add = new AddressBookMain();
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
                 {
                     case 1:
-                        Console.WriteLine("\nEnter your details : \n");
-                        Console.WriteLine("First Name - " + "\n" + "Last Name - " + "\n" + "Address - " + "\n" +
-                                        "City Name - " + "\n" + "State Name - " + "\n" + "Zip Code - " + "\n" +
-                                        "Phone Number - " + "\n" + "Email ID - ");
-                        NewContact create = new NewContact();
-                        create.Create();
+                        add.CreateContact();
+                        add.Display();
+                        break;
+                    case 2:
+                        add.Edit();
+                        add.Display();
                         break;
                     default:
-                        Console.WriteLine("Try Again");
-                        condition = false;
+                        choice = false;
                         break;
                 }
             }
+
+
         }
     }
 }
